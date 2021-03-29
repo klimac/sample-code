@@ -1,5 +1,10 @@
-#FROM - Image to start building on.
-FROM php:8-apache-buster
+FROM python:3
 
-#COPY - Copy application files
-COPY index.php .
+ADD helloworld.py /
+
+RUN pip install flask
+RUN pip install flask_restful
+
+EXPOSE 8080
+
+CMD [ "python", "./helloworld.py"]
